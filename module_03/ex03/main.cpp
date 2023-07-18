@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/16 19:51:49 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/07/16 20:24:19 by abdeel-o         ###   ########.fr       */
+/*   Created: 2023/07/16 10:46:57 by abdeel-o          #+#    #+#             */
+/*   Updated: 2023/07/18 09:59:11 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "DiamondTrap.hpp"
 
-#include "ClapTrap.hpp"
-
-class FragTrap : public ClapTrap
+int main(void)
 {
-	public:
-		FragTrap();
-		FragTrap(const std::string name);
-		FragTrap(const FragTrap& copy);
-		FragTrap& operator=(const FragTrap& other);
-		~FragTrap();
-		void	attack(const std::string& target);
-		void	highFivesGuys( void );
-};
+    DiamondTrap dia = DiamondTrap("ZAZA");
+
+    DiamondTrap sia;
+    
+    sia = dia;
+
+    dia.attack("9IRCH");
+    sia.attack("JEN");
+    dia.takeDamage(14);
+    dia.whoAmI();
+    dia.attack("JEN");
+
+    return (EXIT_SUCCESS);
+}
