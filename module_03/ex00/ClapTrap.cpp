@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 09:22:49 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/07/16 11:54:36 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/07/18 19:38:55 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ClapTrap::ClapTrap() :
 name("Default"),
 hitPoints(10),
 energyPoints(10),
-attackDamage(10) 
+attackDamage(0) 
 {
 	std::cout << "Default constructor called. Welcome, ClapTrap " << name << "!" << std::endl;
 }
@@ -27,7 +27,7 @@ ClapTrap::ClapTrap( const std::string name ) :
 name(name),
 hitPoints(10),
 energyPoints(10),
-attackDamage(10) 
+attackDamage(0) 
 {
 	std::cout << "Constructor called. Welcome, ClapTrap " << name << "!" << std::endl;
 }
@@ -83,7 +83,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 //Attack member function
 void	ClapTrap::attack( const std::string& target )
 {
-	if (energyPoints >= 1) 
+	if (energyPoints >= 1 && hitPoints >= 1) 
 	{
 		energyPoints -= 1;
 		std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
@@ -95,8 +95,9 @@ void	ClapTrap::attack( const std::string& target )
 //beRepaired member function
 void	ClapTrap::beRepaired( unsigned int amount )
 {
-	if (hitPoints > 0)
+	if (hitPoints > 0 && energyPoints >= 1)
 	{
+		energyPoints -= 1;
 		hitPoints += amount;
 		std::cout << "ClapTrap repairs itself" << std::endl;
 	} else
