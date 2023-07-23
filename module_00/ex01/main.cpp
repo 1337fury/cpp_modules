@@ -6,11 +6,39 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:13:51 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/07/10 13:34:54 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:34:59 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+bool	isNumber(std::string& str)
+{
+	if (str.length() < 10)
+		return (false);
+	for (std::size_t i = 0; i < str.length(); i++)
+		if (!std::isdigit(str[i]))
+			return (false);
+	return (true);
+}
+
+bool isValid(std::string& str)
+{
+	for (std::size_t i = 0; i < str.length(); i++)
+		if (!std::isalpha(str[i]) && !std::isspace(str[i]))
+			return (false);
+	return (true);
+}
+
+void	checkLoop(std::string& str, std::string info)
+{
+	while (!isValid(str))
+	{
+		std::cout << RED << "Please enter a valid info!" << RESET << std::endl;
+		std::cout << info << ": ";
+		std::getline(std::cin, str);
+	}
+}
 
 void	_add(PhoneBook& phonebook)
 {
@@ -18,12 +46,21 @@ void	_add(PhoneBook& phonebook)
 
 	std::cout << "First Name: ";
 	std::getline(std::cin, fName);
+	checkLoop(fName, "First Name");
 	std::cout << "Last Name: ";
 	std::getline(std::cin, lName);
+	checkLoop(lName, "Last Name");
 	std::cout << "Nickname: ";
 	std::getline(std::cin, nName);
+	checkLoop(nName, "Nickname");
 	std::cout << "Phone Number: ";
 	std::getline(std::cin, pNum);
+	while (!isNumber(pNum))
+	{
+		std::cout << RED << "Please enter a valid phone number!" << RESET << std::endl;
+		std::cout << "Phone Number: ";
+		std::getline(std::cin, pNum);
+	}
 	std::cout << "Darkest Secret: ";
 	std::getline(std::cin, dSecret);
 	
@@ -45,7 +82,7 @@ void	_search(PhoneBook& phonebook)
 	phonebook.displayContacts();
 	std::cout << "Enter the index of the contact: ";
 	std::getline(std::cin, index);
-	phonebook.displayDetails(stoi(index));
+	phonebook.displayDetails(std::atoi(index.c_str())); //c_str convert str to C style
 }
 
 int main(void)
@@ -61,7 +98,7 @@ int main(void)
 			_add(PhoneBook);
 		else if (command == "SEARCH")
 			_search(PhoneBook);
-		else
+		else if (command != "EXIT")
             std::cout << RED << "Invalid command. Please try again." << RESET << std::endl;
 	}
 	return (0);

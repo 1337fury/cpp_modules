@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 10:49:58 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/07/11 10:27:18 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:36:37 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@
 # define RESET "\033[0m"
 # define RED "\033[31m"
 
+# define MAX 8
+
 class PhoneBook
 {
 	private :
-		static const int MAX = 8;
 		Contact contacts[MAX];
 		int	numContacts;
 		std::string	truncateStr(std::string str) const;
