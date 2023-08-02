@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/16 09:17:37 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/07/31 10:56:13 by abdeel-o         ###   ########.fr       */
+/*   Created: 2023/07/30 19:56:45 by abdeel-o          #+#    #+#             */
+/*   Updated: 2023/07/30 21:42:15 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
+#include "AForm.hpp"
+
+#include <cstdlib>
 #include <iostream>
 
-class ClapTrap
+class RobotomyRequestForm : public AForm
 {
-	public:
-		ClapTrap( void );
-		ClapTrap( const std::string name );
-		ClapTrap(const ClapTrap& copy);
-		ClapTrap& operator=(const ClapTrap& other);
-		~ClapTrap();
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
-		
 	private:
-		std::string		name;
-		unsigned int	hitPoints;
-		unsigned int	energyPoints;
-		unsigned int	attackDamage;
+		RobotomyRequestForm();
+
+  	public:
+		RobotomyRequestForm(std::string const &target);
+		RobotomyRequestForm(const RobotomyRequestForm &);
+		~RobotomyRequestForm();
+
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
+
+		void execute(Bureaucrat const &executor) const;
 };
+
+#endif

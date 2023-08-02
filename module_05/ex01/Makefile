@@ -1,6 +1,6 @@
-NAME	=	bsp
+NAME	=	Form
 CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -Wshadow
 STD		=	-std=c++98
 
 SRC		= $(wildcard *.cpp)

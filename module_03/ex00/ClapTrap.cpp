@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 09:22:49 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/07/18 19:38:55 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/07/31 10:55:53 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	ClapTrap::attack( const std::string& target )
 //beRepaired member function
 void	ClapTrap::beRepaired( unsigned int amount )
 {
-	if (hitPoints > 0 && energyPoints >= 1)
+	if (hitPoints >= 1 && energyPoints >= 1)
 	{
 		energyPoints -= 1;
 		hitPoints += amount;

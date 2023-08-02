@@ -5,38 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 10:59:41 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/07/27 19:06:33 by abdeel-o         ###   ########.fr       */
+/*   Created: 2023/07/29 21:35:30 by abdeel-o          #+#    #+#             */
+/*   Updated: 2023/07/30 09:30:28 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include "Point.hpp"
-#include <iostream>
+#include "Bureaucrat.hpp"
 
-int main( void ) 
+int main()
 {
+	try
 	{
-		Point	a(20,80);
-		Point	b(20,40);
-		Point	c(80,40);
+		Bureaucrat b("Nano", 2);
+        std::cout << b << std::endl;
 
-		Point	p(20.9,79);
+        b.incrementGrade();
+        std::cout << b << std::endl;
 
-		std::string res = bsp( a, b, c, p ) ? "The point is inside the triangle." : "The point is outside the triangle.";
-		std::cout << res << std::endl;
+        b.decrementGrade();
+		std::cout << b << std::endl;
+        b.decrementGrade();
+        std::cout << b << std::endl;
+
+        Bureaucrat c("3edyano", 5);
+        std::cout << c << std::endl;
 	}
-	
+	catch(const std::exception& e)
 	{
-		Point	a(20,80);
-		Point	b(20,40);
-		Point	c(80,40);
-
-		Point	p(10,79);
-
-
-		std::string res = bsp( a, b, c, p ) ? "The point is inside the triangle." : "The point is outside the triangle.";
-		std::cout << res << std::endl;
+		std::cerr << e.what() << '\n';
 	}
-	return 0;
+	return (0);
 }
