@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 11:35:25 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/07/20 13:34:14 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/08/01 11:34:15 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,4 @@ class MateriaSource : public IMateriaSource
 		
 		void		learnMateria(AMateria*);
 		AMateria*	createMateria(std::string const & type);
-	//for test
-		void printMaterias() const;
 };

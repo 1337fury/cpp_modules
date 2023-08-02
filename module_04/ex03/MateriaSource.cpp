@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 11:35:30 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/07/20 13:41:08 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/08/01 11:32:19 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	MateriaSource::learnMateria(AMateria *item)
 		if (!k_materias[i])
 		{
 			k_materias[i] = item->clone();
+			delete item;
 			break ;
 		}
 	}
@@ -62,10 +63,4 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 		if (k_materias[i] && k_materias[i]->getType() == type)
 			return (k_materias[i]);
 	return (NULL);
-}
-
-void MateriaSource::printMaterias() const
-{
-	for (int i = 0; k_materias[i] ; i++)
-		std::cout << "Known Materias[" << i << "]: " << k_materias[i]->getType() << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 16:14:05 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/07/18 18:56:05 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/07/31 10:32:28 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Brain
 		Brain();
 		Brain(const Brain& copy);
 		Brain& operator=(const Brain& other);
-		virtual ~Brain();
+		~Brain();
 	private:
 		std::string ideas[100];
 };

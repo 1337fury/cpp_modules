@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 12:24:06 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/07/20 15:10:46 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/08/01 11:32:10 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,12 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 
-int main()
+int main_()
 {
 	IMateriaSource* src = new MateriaSource();
 
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-
-	//For test
-	src->printMaterias();
 
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
@@ -42,4 +39,11 @@ int main()
 	delete me;
 	delete src;
 	return 0;
+}
+
+
+int main()
+{
+	main_();
+	system("leaks recap");
 }
