@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 16:14:30 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/07/18 18:52:17 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/08/02 22:46:27 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ Brain& Brain::operator=(const Brain& other)
 
 Brain::~Brain()
 {
-	std::cout << RED << "Animal" << RESET " Destroyed. bye!" << std::endl;
+	std::cout << RED << "Brain" << RESET " Destroyed. bye!" << std::endl;
 }
