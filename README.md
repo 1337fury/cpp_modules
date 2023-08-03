@@ -25,7 +25,7 @@ This repository contains my collection of 42cpp modules. Each module covers a sp
 9. Module 08: ...
 10. Module 09: ...
 
-Each module is organized in a separate directory and contains a README file with detailed explanations and examples. Feel free to explore them and use them as study material to improve your C++ skills.
+Each module is organized in a separate directory. Feel free to explore them and use them as study material to improve your C++ skills.
 
 ## How to Use
 
