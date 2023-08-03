@@ -91,10 +91,10 @@ const char *AForm::GradeTooLowException::what() const throw()
 std::ostream &operator<<(std::ostream &o, AForm const &i)
 {
     o << "AForm Details:" << std::endl
-      << "Name: " << i.getName() << std::endl
-      << "Is Signed: " << (i.getIsSigned() ? "Yes" : "No") << std::endl
-      << "Grade to Sign: " << i.getGradeToSign() << std::endl
-      << "Grade to Execute: " << i.getGradeToExecute();
+      << "\tName: " << i.getName() << std::endl
+      << "\tIs Signed: " << (i.getIsSigned() ? "Yes" : "No") << std::endl
+      << "\tGrade to Sign: " << i.getGradeToSign() << std::endl
+      << "\tGrade to Execute: " << i.getGradeToExecute();
     return o;
 }
 
@@ -109,6 +109,6 @@ void AForm::execute(const Bureaucrat& executor) const
 
 const char *AForm::FormNotSignedException::what() const throw()
 {
-	return ("Does not meet the requirement to execute!");
+	return ("the form does not signed!");
 }
 

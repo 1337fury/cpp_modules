@@ -6,30 +6,35 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 21:35:30 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/07/30 17:36:23 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/08/03 16:49:12 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
 	try
 	{
-		std::cout << "====================================" << std::endl;
 
-		Form form("42-A", 10, 12);
-		std::cout << form << std::endl;
+		Bureaucrat hamza("hamza", 60); //Bureaucrat
 		
-		std::cout << "====================================" << std::endl;
+		std::cout << "\n\t\t[Bureaucrat]" << std::endl;
+		std::cout << hamza << std::endl;
 
-		Bureaucrat nano("Chab Nano", 150);
-		std::cout << nano << std::endl;
-		form.beSigned(nano);
-		form.signForm(nano);
+		ShrubberyCreationForm sForm("2A-00"); //Form
 
-		std::cout << "====================================" << std::endl;
+		std::cout << "\n\t\t[Form(before)]" << std::endl;
+		std::cout << sForm << std::endl;
+
+		sForm.beSigned(hamza); //try sign form
+
+		std::cout << "\n\t\t[Form(after)]" << std::endl;
+		std::cout << sForm << std::endl;
+
+		sForm.execute(hamza); //try execute form
 	}
 	catch(const std::exception& e)
 	{
@@ -38,41 +43,23 @@ int main()
 
 	try
 	{
-		std::cout << RED << "====================================" << WHITE <<std::endl;
 
-		Form form("HS-202", 3, 4);
-		std::cout << form << std::endl;
+		Bureaucrat Moad("Moad", 150); //Bureaucrat
 		
-		std::cout << "====================================" << std::endl;
+		std::cout << "\n\t\t[Bureaucrat]" << std::endl;
+		std::cout << Moad << std::endl;
 
-		Bureaucrat lydia("Lydia Moonshadow", 2);
-		std::cout << lydia << std::endl;
-		form.beSigned(lydia);
-		form.signForm(lydia);
+		ShrubberyCreationForm xForm("XXXX"); //Form
 
-		std::cout << "====================================" << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+		std::cout << "\n\t\t[Form(before)]" << std::endl;
+		std::cout << xForm << std::endl;
 
-	try
-	{
-		std::cout << RED << "====================================" << WHITE <<std::endl;
+		xForm.beSigned(Moad); //try sign form
 
-		Form form("ECO-22", 1, 2);
-		std::cout << form << std::endl;
-		
-		std::cout << "====================================" << std::endl;
+		std::cout << "\n\t\t[Form(after)]" << std::endl;
+		std::cout << xForm << std::endl;
 
-		Bureaucrat Diana("Diana Greenleaf", 1);
-		Diana.incrementGrade();
-		std::cout << Diana << std::endl;
-		form.beSigned(Diana);
-		form.signForm(Diana);
-
-		std::cout << "====================================" << std::endl;
+		xForm.execute(Moad); //try execute form
 	}
 	catch(const std::exception& e)
 	{
