@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 10:37:23 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/07/18 14:02:54 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/08/04 17:48:15 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main()
 	const WrongAnimal* wmeta = new WrongAnimal();
 	const WrongAnimal* wi = new WrongCat();
 	std::cout << wi->getType() << " " << std::endl;
-	wi->makeSound(); //will output the cat sound!
+	wi->makeSound(); //will output the cat sound?!
 	wmeta->makeSound();
 	
 	delete wi;

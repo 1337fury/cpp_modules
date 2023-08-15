@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 12:21:23 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/08/02 22:52:02 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/08/04 17:51:06 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ Dog::Dog() : Animal()
 	}
 	catch(const std::bad_exception& e)
 	{
-		std::cerr << e.what() << '\n';
 		brain = NULL;
+		std::cerr << e.what() << '\n';
 	}
 	std::cout << "New " << RED << "Dog" << RESET << " Created. Weclome!" << std::endl;
 }
