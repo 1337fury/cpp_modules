@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 14:39:47 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/08/15 12:48:31 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:35:45 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ class MutantStack : public std::stack<T>
 
     // Return const_iterator to the beginning of the container
 		const_iterator begin() const {return std::stack<T>::c.begin();}
+
 
     // Return const_iterator to the end of the container
 		const_iterator end() const {return std::stack<T>::c.end();}
