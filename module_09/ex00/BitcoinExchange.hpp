@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 12:37:41 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/08/18 10:38:28 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/08/18 11:33:41 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class BitcoinExchange
 
 		typedef std::pair<std::string, std::string> pair;
 		typedef std::map<std::string, std::string>::iterator iterator;
-		typedef std::map<std::string, std::string>::reverse_iterator revers_iterator;
+		typedef std::map<std::string, std::string>::reverse_iterator revers_iterator; //usless
 
 		//Costum Methods
 		void		processFile( void );
