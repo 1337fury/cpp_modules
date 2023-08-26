@@ -22,7 +22,7 @@ This repository contains my collection of 42cpp modules. Each module covers a sp
 7. **Module 06**: ...
 8. **Module 07**: C++ templates
 9. **Module 08**: Templated containers, iterators, algorithms
-10. **Module 09**: ...
+10. **Module 09**: STL
 
 Each module is organized in a separate directory. Feel free to explore them and use them as study material to improve your C++ skills.
 
