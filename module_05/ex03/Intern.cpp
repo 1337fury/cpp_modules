@@ -6,14 +6,11 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 09:45:49 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/08/03 13:30:01 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/09/08 16:08:35 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "PresidentialPardonForm.hpp"
 
 Intern::Intern()
 {
@@ -39,26 +36,38 @@ Intern::~Intern()
     // Destructor implementation
 }
 
+AForm*	Intern::robotomy( const std::string& formTarget )
+{
+	std::cout << "Intern creates robotomy request" << std::endl;
+	return new RobotomyRequestForm(formTarget);
+}
+
+AForm*	Intern::shrubbery( const std::string& formTarget )
+{
+	std::cout << "Intern creates shrubbery creation" << std::endl;
+	return new ShrubberyCreationForm(formTarget);
+}
+
+AForm*	Intern::presidential( const std::string& formTarget )
+{
+	std::cout << "Intern creates presidential pardon" << std::endl;
+	return new PresidentialPardonForm(formTarget);
+}
+
 AForm* Intern::makeForm(const std::string& formName, const std::string& formTarget)
 {
-	if (formName == "robotomy request")
+	robotomyPtr		robo = &Intern::robotomy;
+	shrubberyPtr 	shru = &Intern::shrubbery;
+	presidentialPtr	pres = &Intern::presidential;
+
+	allForm			all = {robo, shru, pres};
+	std::string 	request[3] = {"robotomy request", "Shrubbery creation", "Presidential pardon"};
+
+	for (int i = 0; i < 3; i++)
 	{
-		std::cout << "Intern creates robotomy request" << std::endl;
-		return new RobotomyRequestForm(formTarget);
+		if (formName == request[i])
+			return ((this->*all[i])(formTarget));
 	}
-	else if (formName == "Shrubbery creation")
-	{
-		std::cout << "Intern creates shrubbery creation" << std::endl;
-		return new ShrubberyCreationForm(formTarget);
-	}
-	else if (formName == "Presidential pardon")
-	{
-		std::cout << "Intern creates presidential pardon" << std::endl;
-		return new PresidentialPardonForm(formTarget);
-	}
-	else 
-	{
-        std::cout << "Error: Invalid form name" << std::endl;
-        return (NULL);
-    }
+	std::cout << "Error: Invalid form name" << std::endl;
+    return (NULL);
 }

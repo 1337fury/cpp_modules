@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 09:37:52 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/08/03 12:49:44 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/09/08 16:03:01 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define INTERN_HPP
 
 #include "AForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 class Intern
 {
@@ -25,7 +28,18 @@ class Intern
 
 		AForm* makeForm(const std::string& name, const std::string& target);
 
+		AForm*	robotomy( const std::string& );
+		AForm*	shrubbery( const std::string& );
+		AForm*	presidential( const std::string& );
+
 	private:
-		// Add private member variables here
+		
 };
+
+typedef	AForm* (Intern::*robotomyPtr)( const std::string& );
+typedef	AForm* (Intern::*shrubberyPtr)( const std::string& );
+typedef	AForm* (Intern::*presidentialPtr)( const std::string& );
+
+typedef AForm* (Intern::*allForm[3]) ( const std::string& );
+
 #endif // INTERN_HPP
