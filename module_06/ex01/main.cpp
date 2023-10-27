@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 14:39:25 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/10/24 20:39:13 by abdeel-o         ###   ########.fr       */
+/*   Created: 2023/09/16 09:54:10 by abdeel-o          #+#    #+#             */
+/*   Updated: 2023/09/16 10:03:14 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Serializer.hpp"
 
-int main(int argv, char** argc)
+int main(void)
 {
-    if (argv != 2)
-	{
-        std::cout << "Usage: ./convert <literal>" << std::endl;
-        return 1;
-    }
-    std::string literal(argc[1]);
-    ScalarConverter::convert(literal);
+	Data data("fury");
 
-    return 0;
+	uintptr_t serial = Serializer::serialize(&data);
+	std::cout << "Data serial number: " << serial << std::endl;
+ 
+	Data* obj = Serializer::deserialize(serial);
+	std::cout << "Object name: " << obj->get_name() << std::endl;
+
+	return 0;
 }

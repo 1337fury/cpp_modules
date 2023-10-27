@@ -5,22 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 14:39:25 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/10/24 20:39:13 by abdeel-o         ###   ########.fr       */
+/*   Created: 2023/09/20 20:49:58 by abdeel-o          #+#    #+#             */
+/*   Updated: 2023/09/20 22:20:49 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Indentify.hpp"
 
-int main(int argv, char** argc)
+int main() 
 {
-    if (argv != 2)
-	{
-        std::cout << "Usage: ./convert <literal>" << std::endl;
-        return 1;
-    }
-    std::string literal(argc[1]);
-    ScalarConverter::convert(literal);
+    Base* obj = generate();
+    identify(obj);
+    identify(*obj);
 
+    delete obj;
     return 0;
 }

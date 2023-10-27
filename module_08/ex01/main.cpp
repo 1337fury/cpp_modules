@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 11:59:54 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/08/14 10:22:13 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/10/10 16:28:57 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-	{//[subject Test]
+	{//[subject Test] => NO ERROR
 		Span sp = Span(5);
 		sp.addNumber(6);
 		sp.addNumber(3);
@@ -24,7 +24,7 @@ int main()
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
 	}
-	{//[Costum Test]
+	{//[Costum Test] => ERROR
 		Span sp = Span(4);
 		try
 		{
@@ -35,11 +35,11 @@ int main()
 			std::cerr << e.what() << '\n';
 		}
 	}
-	{//[Costum Test]
+	{//[Costum Test] => NO ERROR
 		Span sp = Span(4);
 		try
 		{
-			sp.multipleNumber(4, 1, 88, 0, 12, 11);
+			sp.multipleNumber(4, 1, 88, 0, 12);
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;
 		}

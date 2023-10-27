@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 12:37:37 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/08/18 11:28:05 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/09/01 12:57:30 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ bool check_value(std::string line)
     std::string dateStr = line.substr(0, sepPos);
     
     // Extract the value string from the line
-    	std::string valueStr = line.substr(sepPos + 3);
+    std::string valueStr = line.substr(sepPos + 3);
 	
     // Convert the value string to double
     double value = std::stod(valueStr);

@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Indentify.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 14:39:25 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/10/24 20:39:13 by abdeel-o         ###   ########.fr       */
+/*   Created: 2023/09/20 20:49:18 by abdeel-o          #+#    #+#             */
+/*   Updated: 2023/09/20 20:53:02 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#pragma once
 
-int main(int argv, char** argc)
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+class Base
 {
-    if (argv != 2)
-	{
-        std::cout << "Usage: ./convert <literal>" << std::endl;
-        return 1;
-    }
-    std::string literal(argc[1]);
-    ScalarConverter::convert(literal);
+	public:
+   		virtual ~Base() {}
+};
 
-    return 0;
-}
+class A : public Base {};
+
+class B : public Base {};
+
+class C : public Base {};
+
+Base* generate();
+void identify(Base& p);
+void identify(Base* p);

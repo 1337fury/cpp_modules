@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 14:39:25 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/10/24 20:39:13 by abdeel-o         ###   ########.fr       */
+/*   Created: 2023/09/16 08:54:29 by abdeel-o          #+#    #+#             */
+/*   Updated: 2023/09/16 09:52:59 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#pragma once
 
-int main(int argv, char** argc)
+#include "Data.hpp"
+#include <cstdint>
+
+class Serializer
 {
-    if (argv != 2)
-	{
-        std::cout << "Usage: ./convert <literal>" << std::endl;
-        return 1;
-    }
-    std::string literal(argc[1]);
-    ScalarConverter::convert(literal);
+	private:
+		/* data */
+	public:
+		Serializer();
+		Serializer(const Serializer& other);
+		Serializer& operator=(const Serializer& copy);
+		~Serializer();
 
-    return 0;
-}
+	static uintptr_t serialize(Data* ptr);
+	static Data* deserialize(uintptr_t raw);
+};

@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 14:39:25 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/10/24 20:39:13 by abdeel-o         ###   ########.fr       */
+/*   Created: 2023/09/16 09:39:52 by abdeel-o          #+#    #+#             */
+/*   Updated: 2023/09/20 17:14:52 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#pragma once
+#include <iostream>
 
-int main(int argv, char** argc)
+class Data
 {
-    if (argv != 2)
-	{
-        std::cout << "Usage: ./convert <literal>" << std::endl;
-        return 1;
-    }
-    std::string literal(argc[1]);
-    ScalarConverter::convert(literal);
+	private:
+		Data();
+		std::string name;
+	public:
+		Data(const std::string& name);
+		Data(const Data& other);
+		Data& operator=(const Data& copy );
+		~Data();
 
-    return 0;
-}
+		std::string	get_name( void );
+};
+

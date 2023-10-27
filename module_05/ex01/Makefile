@@ -1,6 +1,6 @@
 NAME	=	Form
 CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror -Wshadow
+CFLAGS	=	-Wall -Wextra -Werror
 STD		=	-std=c++98
 
 SRC		= $(wildcard *.cpp)

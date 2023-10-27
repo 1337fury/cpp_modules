@@ -6,11 +6,14 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 14:39:47 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/08/16 12:35:45 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/10/10 20:32:44 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
+#define GREEN "\033[32m"
+#define RESET "\033[0m"
 
 #include <stack>
 
@@ -37,9 +40,7 @@ class MutantStack : public std::stack<T>
 		typedef typename std::stack<T>::container_type::reverse_iterator  reverse_iterator;
 		typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
 
-    // Inherit constructor from std::stack
-		using typename std::stack<T>::stack;
-
+	// c is a protected member that refers to the underlying container object
     // Return iterator to the beginning of the container
 		iterator begin() {return std::stack<T>::c.begin();}
 		

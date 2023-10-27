@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:07:39 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/08/19 12:37:16 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/10/27 16:12:34 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ RPN& RPN::operator=(const RPN& other)
 
 RPN::~RPN() {}
 
+// 10 2 + 3 *
+// 10 2 + 3 * 4 /
+// 10 2 + 3 * 4 / 5 -
+// 10 2 + 3 * 4 / 5 - 6 +
+// 10 2
 RPN::_Vector RPN::tokenize(std::string& s)
 {
     _Vector 	container; // Container to store the tokens
@@ -47,6 +52,8 @@ RPN::_Vector RPN::tokenize(std::string& s)
         if (std::isdigit(s[i])) // If the character is a digit
 		{
             temp += s[i]; // Add it to the temporary string
+			if (!temp.empty() && i == s.size() - 1) // If the temporary string is not empty and we reached the end of the string
+				throw std::invalid_argument("Invalid format");
             continue; // Move to the next character
 		}
         if (op.find(s[i]) != std::string::npos || std::isspace(s[i])) // If the character is an operator or a space
@@ -58,7 +65,7 @@ RPN::_Vector RPN::tokenize(std::string& s)
                 container.push_back(std::string(1, s[i])); // Add it to the container
 		}
 		else
-            throw std::invalid_argument("Invalid character"); // Throw an exception for invalid characters
+            throw std::invalid_argument("Invalid format"); // Throw an exception for invalid characters
     }
     
     return container; // Return the container of tokens
@@ -123,6 +130,8 @@ int	RPN::calculator( void )
     std::vector<std::string> 	arr;
 	std::string 				op = "+-*/";
 
+	if (!stack.size())
+		throw std::invalid_argument("Invalid format");
     while (!stack.empty()) {
         if (op.find(stack.top()) != std::string::npos)
             // Perform operation if top of stack is an operator
@@ -132,7 +141,6 @@ int	RPN::calculator( void )
 			arr.push_back(stack.top());
 		stack.pop();
 	}
-
     if (arr.size() > 1)
 		throw std::invalid_argument("Invalid format");
 

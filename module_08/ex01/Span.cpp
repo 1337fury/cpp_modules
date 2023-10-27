@@ -6,7 +6,7 @@
 /*   By: abdeel-o <abdeel-o@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 12:01:39 by abdeel-o          #+#    #+#             */
-/*   Updated: 2023/08/14 10:17:43 by abdeel-o         ###   ########.fr       */
+/*   Updated: 2023/10/10 16:26:40 by abdeel-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ Span::Span(const Span& other)
 Span& Span::operator=(const Span& other)
 {
 	if (this != &other)
+	{
+		numbers = other.numbers;
 		max = other.max;
+	}
 	return (*this);
 }
 
@@ -75,7 +78,7 @@ int Span::longestSpan(void)
     return (*(numbers.end() - 1) - *numbers.begin());
 }
 
-	// - There are several convenient methods available in the Standard Template Library (STL) to add multiple numbers to the Span object. However, for the purpose of emphasizing this crucial concept, I prefer utilizing variadic functions.
+// - There are several convenient methods available in the Standard Template Library (STL) to add multiple numbers to the Span object. However, for the purpose of emphasizing this crucial concept, I prefer utilizing variadic functions.
 // Function to add multiple numbers to the Span object
 void Span::multipleNumber(size_t count, ...)
 {
