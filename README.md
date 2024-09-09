@@ -44,4 +44,4 @@ Whether you are a beginner or an experienced programmer, these modules can serve
 
 ## Contact
 
-If you have any questions or want to get in touch, you can reach me via elouardyabdelhalim@gmail.com.
+If you have any questions or want to get in touch, you can reach me via ey.abdelhalim@gmail.com.
